@@ -43,7 +43,15 @@ function isolate(name) {
 
 const CONFIG = { min: 0.1, max: 10 };
 const sandbox = { CONFIG, Math, Number, String, isFinite: Number.isFinite };
-for (const name of ['clampRate', 'roundRate', 'effectiveRate', 'parseCustomRate', 'formatMenuRate']) {
+for (const name of [
+  'clampRate',
+  'roundRate',
+  'effectiveRate',
+  'parseCustomRate',
+  'formatMenuRate',
+  'needsSmoothRate',
+  'sampleAtTime',
+]) {
   // eslint-disable-next-line no-new-func
   sandbox[name] = new Function(
     ...Object.keys(sandbox),
@@ -62,5 +70,14 @@ assert.strictEqual(sandbox.parseCustomRate('0.03'), 0.1);
 assert.strictEqual(sandbox.formatMenuRate(1), '1X');
 assert.strictEqual(sandbox.formatMenuRate(0.75), '0.75X');
 assert.strictEqual(sandbox.formatMenuRate(2.5), '2.5X');
+assert.strictEqual(sandbox.needsSmoothRate(2, true, true), false);
+assert.strictEqual(sandbox.needsSmoothRate(2.5, true, true), true);
+assert.strictEqual(sandbox.needsSmoothRate(3, false, true), false);
+assert.strictEqual(sandbox.needsSmoothRate(3, true, false), false);
+const pts = new Float32Array([0, 0.04, 0.08, 3, 3.04]);
+const key = new Uint8Array([1, 0, 0, 1, 0]);
+assert.strictEqual(sandbox.sampleAtTime(pts, key, 0.09), 0);
+assert.strictEqual(sandbox.sampleAtTime(pts, key, 3.04), 3);
+assert.strictEqual(sandbox.sampleAtTime(pts, key, 0), 0);
 
 console.log('sjtu speeder compat: ok');

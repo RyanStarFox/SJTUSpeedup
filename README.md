@@ -4,7 +4,7 @@
 
 同一套交互来自 [SpeedUp](https://github.com/RyanStarFox/SpeedUp)：记住倍速、短按前进后退、长按临时变速。教师画面和 PPT 会一起改速。
 
-当前版本：**1.0.1**。
+当前版本：**1.0.2**。
 
 ## 安装
 
@@ -14,7 +14,7 @@ Safari、Chrome、Edge、Firefox 用的是同一份 [`sjtu-speedup.user.js`](./s
 2. **Chrome / Edge 138+**：在扩展详情里打开「允许运行用户脚本 / Allow User Scripts」，否则脚本不会执行。
 3. 新建脚本，把 `sjtu-speedup.user.js` 全文粘贴进去并保存。
 4. 打开课堂回看页，硬刷新（Cmd/Ctrl+Shift+R）。
-5. 控制栏「倍速」上悬停，应看到 `3X` … `0.5X` 和最上面的自定义输入框。控制台应有：`[SJTUSpeedup] v1.0.1 active`。
+5. 控制栏「倍速」上悬停，应看到 `3X` … `0.5X` 和最上面的自定义输入框。控制台应有：`[SJTUSpeedup] v1.0.2 active`。
 
 ## 功能
 
@@ -35,6 +35,7 @@ Safari、Chrome、Edge、Firefox 用的是同一份 [`sjtu-speedup.user.js`](./s
 
 ## 已知限制
 
+- Safari（含 iPhone / iPad 上的浏览器）在高于 `2x` 时只会跳着显示关键帧，看起来像幻灯片。脚本会按播放进度把每一帧画出来，进度和字幕仍走原来的时间。Chrome、Edge、Firefox 本身会播放全部帧，不走这条路径。刚切到 `2.5x` / `3x` 时，Safari 可能要一两秒才换成连续画面。
 - 浏览器大约在低于 `0.5x` 或高于 `4x` 时会把声音静音，画面仍可能继续播。
 - 播放器大约允许到 `16x`，脚本把范围限制在 `0.1`–`10`。
 - 直播这类实时流会拒绝改倍速，脚本不会硬改画面。
