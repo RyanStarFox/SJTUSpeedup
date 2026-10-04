@@ -1,20 +1,20 @@
-# SJTU Speeder
+# SJTUSpeedup
 
 给 [交大课堂回看](https://v.sjtu.edu.cn/jy-application-resourcemanage-ui/) 增加更多倍速。原生菜单只有 `0.5 / 0.75 / 1 / 1.25 / 1.5 / 2`，这个脚本保留这些档位，并加上 `2.5` 和 `3`，也可以自己输入 `0.1`–`10`。
 
 同一套交互来自 [SpeedUp](https://github.com/RyanStarFox/SpeedUp)：记住倍速、短按前进后退、长按临时变速。教师画面和 PPT 会一起改速。
 
-当前版本：**1.0.0**。
+当前版本：**1.0.1**。
 
 ## 安装
 
-Safari、Chrome、Edge、Firefox 用的是同一份 [`sjtu-speeder.user.js`](./sjtu-speeder.user.js)。脚本声明了 `@grant none`，在页面上下文里运行，不依赖油猴专用 API。
+Safari、Chrome、Edge、Firefox 用的是同一份 [`sjtu-speedup.user.js`](./sjtu-speedup.user.js)。脚本声明了 `@grant none`，在页面上下文里运行，不依赖油猴专用 API。
 
 1. Safari 安装 [Userscripts](https://github.com/quoid/userscripts) 或 [Tampermonkey](https://www.tampermonkey.net/)。Chrome、Edge、Firefox 安装 Tampermonkey（Firefox 也可以用 Violentmonkey）。
 2. **Chrome / Edge 138+**：在扩展详情里打开「允许运行用户脚本 / Allow User Scripts」，否则脚本不会执行。
-3. 新建脚本，把 `sjtu-speeder.user.js` 全文粘贴进去并保存。
+3. 新建脚本，把 `sjtu-speedup.user.js` 全文粘贴进去并保存。
 4. 打开课堂回看页，硬刷新（Cmd/Ctrl+Shift+R）。
-5. 控制栏「倍速」上悬停，应看到 `3X` … `0.5X` 和最上面的自定义输入框。控制台应有：`[SJTU Speeder] v1.0.0 active`。
+5. 控制栏「倍速」上悬停，应看到 `3X` … `0.5X` 和最上面的自定义输入框。控制台应有：`[SJTUSpeedup] v1.0.1 active`。
 
 ## 功能
 

@@ -2,7 +2,7 @@ const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
 
-const script = fs.readFileSync(path.join(__dirname, '..', 'sjtu-speeder.user.js'), 'utf8');
+const script = fs.readFileSync(path.join(__dirname, '..', 'sjtu-speedup.user.js'), 'utf8');
 
 assert.match(script, /\/\/ @grant\s+none/, 'must run in the page realm for Safari Userscripts');
 assert.match(script, /\/\/ @inject-into\s+page/);

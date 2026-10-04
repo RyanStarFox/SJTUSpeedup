@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         SJTU Speeder — 课堂回看倍速
+// @name         SJTUSpeedup — 课堂回看倍速
 // @namespace    https://v.sjtu.edu.cn/jy-application-resourcemanage-ui/
-// @version      1.0.0
+// @version      1.0.1
 // @description  为交大课堂回看增加更多倍速、记忆上次倍速，并支持长按 O/P 临时变速
-// @author       SJTU Speeder
+// @author       SJTUSpeedup
 // @match        https://v.sjtu.edu.cn/jy-application-resourcemanage-ui/*
 // @grant        none
 // @inject-into  page
@@ -41,7 +41,7 @@
   };
 
   const log = (...args) => {
-    if (CONFIG.debug) console.log('[SJTU Speeder]', ...args);
+    if (CONFIG.debug) console.log('[SJTUSpeedup]', ...args);
   };
 
   // ─────────────────────────────────────────────────────────────
@@ -241,7 +241,7 @@
         try {
           callback(rate, this);
         } catch (error) {
-          console.warn('[SJTU Speeder] onChange error', error);
+          console.warn('[SJTUSpeedup] onChange error', error);
         }
       }
     }
@@ -514,7 +514,7 @@
     if (!label) return;
     const text = formatControlRate(controller.getEffectiveRate());
     if (label.textContent !== text) label.textContent = text;
-    if (label.title !== 'SJTU Speeder 倍速') label.title = 'SJTU Speeder 倍速';
+    if (label.title !== 'SJTUSpeedup 倍速') label.title = 'SJTUSpeedup 倍速';
   }
 
   function ensurePopper(popper, controller) {
@@ -580,7 +580,7 @@
     setInterval(tick, 500);
 
     console.info(
-      `[SJTU Speeder] v1.0.0 active — base ${formatControlRate(controller.getBaseRate())}. Hold O/P 0.5s to temp slow/boost.`
+      `[SJTUSpeedup] v1.0.1 active — base ${formatControlRate(controller.getBaseRate())}. Hold O/P 0.5s to temp slow/boost.`
     );
   }
 
